@@ -22,8 +22,10 @@ export const AppMain = styled.main`
   justify-content: center;
 `;
 
-export const AppFooter = styled.main`
+export const AppFooter = styled.footer`
   padding-top: 1em;
   padding-bottom: 1em;
   text-align: center;
+  font-size: 0.9em;
+  background-color: #252736};
 `;
