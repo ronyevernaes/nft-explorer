@@ -4,7 +4,7 @@ import { CardGrid } from '@/components/CardGrid';
 import type { OwnedNft } from 'alchemy-sdk';
 import { SearchBox } from '@/components';
 
-import { HomeContainer, GridContainer } from '@/styles/Home.styled';
+import { HomeContainer, GridContainer } from '@/styles';
 
 export default function Home() {
   const [data, setData] = useState<OwnedNft[] | undefined>();

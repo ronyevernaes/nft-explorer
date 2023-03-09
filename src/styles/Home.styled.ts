@@ -4,6 +4,7 @@ export const HomeContainer = styled.div`
   display: flex;
   gap: 1.5em;
   flex-direction: column;
+  width: 100%;
 `;
 
 export const GridContainer = styled.div`
