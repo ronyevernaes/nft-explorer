@@ -2,21 +2,26 @@
 
 Another NFT Explorer.
 
-## To run it locally
+## To configure and run locally
 
 1. Install the dependencies:
 ```
 yarn
-``` 
+```
 
-2. Run the tests (optional)
+2. Setup `.env` file
+```
+ALCHEMY_APY_KEY=<alchemy_api_key>
+```
+
+3. Run the tests (optional)
 ```
 yarn test
 ```
 
-3. Run the project
+4. Run the project
 ```
 yarn dev
 ```
 
-4. Open a browser in [http://localhost:3000](http://localhost:3000).
+5. Open a browser in [http://localhost:3000](http://localhost:3000).
