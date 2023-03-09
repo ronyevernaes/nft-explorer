@@ -36,7 +36,7 @@ export default function Home() {
     <HomeContainer>
       <SearchBox value={address} onChange={onChangeSearchBox} loading={loading} />
 
-      {data && 
+      {data && data.length > 0 &&
         <GridContainer>
           <CardGrid nfts={data} onClick={openModal} />
         </GridContainer>}

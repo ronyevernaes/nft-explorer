@@ -11,27 +11,30 @@ export interface CardProps {
 }
 
 export const Card: FC<CardProps> = ({ nft, onClick }) => {
-  const { rawMetadata: data } = nft;
+  const { rawMetadata: metadata, media } = nft;
   const [isError, setIsError] = useState<boolean>(false);
+
+  const name = metadata?.name && metadata?.name.length > 0
+    ? metadata?.name
+    : `${nft.contract.name} #${nft.tokenId}`;
+
+  const image = media.length > 0
+    ? media[0].gateway : metadata?.image;
 
   const onError = () => setIsError(true);
 
   if (isError) {
     console.error(
-      `Error rendering NFT ${data?.name}. URL: ${data?.image}`
+      `Error rendering NFT ${name}. URL: ${image}`
     );
     return <></>;
   }
 
   return (
     <StyledCard onClick={onClick}>
-      <ImageLoader
-        url={data?.image || ''}
-        alt={data?.name || ''}
-        onError={onError}
-      />
+      <ImageLoader url={image || ''} alt={name || ''} onError={onError} />
 
-      <h3>{data?.name}</h3>
+      <h3>{name}</h3>
     </StyledCard>
   );
 };

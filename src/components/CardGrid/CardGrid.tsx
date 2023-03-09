@@ -15,7 +15,7 @@ export const CardGrid: FC<CardGridProps> = ({ nfts, onClick }) => {
       {nfts.map(nft => (
         <Card
           nft={nft}
-          key={nft.rawMetadata?.name}
+          key={`${nft.contract.symbol}-${nft.tokenId}`}
           onClick={() => onClick && onClick(nft)}
         />
       ))}
