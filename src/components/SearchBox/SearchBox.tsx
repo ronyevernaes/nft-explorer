@@ -4,7 +4,7 @@ import { StyledSearchBoxContainer, StyledSearchBoxInput, StyledSearchBoxButton }
 
 export interface SearchBoxProps {
   value: string;
-  onChange: (value: string) => void;
+  onChange?: (value: string) => void;
   loading?: boolean;
 }
 
@@ -25,7 +25,7 @@ export const SearchBox: FC<SearchBoxProps> = ({ value, onChange, loading }) => {
       setSearchValue('');
       setAppliedSearch(false);
     } else {
-      onChange(searchValue);
+      onChange && onChange(searchValue);
       if (hasValue) {
         setAppliedSearch(true);
       }
@@ -38,10 +38,15 @@ export const SearchBox: FC<SearchBoxProps> = ({ value, onChange, loading }) => {
         value={searchValue}
         onChange={onChangeSearchValue}
         placeholder='Enter the address to look for NFTs'
+        data-testid='searchbox-input'
       />
 
       {/* For cleanness, this behavior should be implemented in two buttons */}
-      <StyledSearchBoxButton onClick={onClickSearchButton} disabled={loading}>
+      <StyledSearchBoxButton
+        onClick={onClickSearchButton}
+        disabled={loading}
+        data-testid='searchbox-button'
+      >
         {loading ? '...' : buttonText}
       </StyledSearchBoxButton>
     </StyledSearchBoxContainer>

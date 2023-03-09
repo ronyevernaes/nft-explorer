@@ -9,7 +9,7 @@ export const StyledSearchBoxContainer = styled.div`
   border-radius: 2px;
   padding: 1.4rem 2rem 1.6rem;
   background: rgba(57, 63, 84, 0.8);
-  border-bottom: solid 2px ${({ theme }) => theme.colors.secondary?.contrastText}
+  border-bottom: solid 2px ${({ theme }) => theme.colors?.secondary?.contrastText}
 `;
 
 export const StyledSearchBoxInput = styled.input`
@@ -19,7 +19,7 @@ export const StyledSearchBoxInput = styled.input`
   flex-grow: 1;
   color: #bfd2ff;
   font-size: 1.2rem;
-  line-height: 2.4rem;
+  line-height: 2.2rem;
   vertical-align: middle;
   &::-webkit-input-placeholder {
     color: #7881a1;
