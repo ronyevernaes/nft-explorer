@@ -33,7 +33,7 @@ export const StyledBaseButton = styled.button`
   border: none;
   outline: none;
   color: ${({ theme }) => theme.colors?.secondary?.contrastText};
-  font-size: 2rem;
+  font-size: 1.2rem;
   line-height: 2.4rem;
   vertical-align: middle;
   transition: color .25s;
