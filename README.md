@@ -25,3 +25,6 @@ yarn dev
 ```
 
 5. Open a browser in [http://localhost:3000](http://localhost:3000).
+
+## Live version
+Check the app working on [https://nft-explorer-pink.vercel.app/](https://nft-explorer-pink.vercel.app/)
