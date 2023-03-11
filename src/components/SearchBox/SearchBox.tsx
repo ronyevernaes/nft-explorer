@@ -1,20 +1,20 @@
 import React, { FC, FormEvent, useState } from 'react';
 
+import { StyledClipboardIcon, StyledXMarkIcon } from '../Icons';
+
 import {
   StyledSearchBoxContainer,
   StyledSearchBoxInput,
-  StyledSearchBoxButton,
-  StyledSearchPasteIcon,
-  StyledSearchClearIcon,
+  StyledBaseButton,
 } from './SearchBox.styled';
 
 export interface SearchBoxProps {
   value: string;
-  onChange?: (value: string) => void;
+  onSearch?: (value: string) => void;
   loading?: boolean;
 }
 
-export const SearchBox: FC<SearchBoxProps> = ({ value, onChange, loading }) => {
+export const SearchBox: FC<SearchBoxProps> = ({ value, onSearch, loading }) => {
   const [searchValue, setSearchValue] = useState<string>(value);
 
   const hasValue = searchValue && searchValue.length > 0;
@@ -35,18 +35,18 @@ export const SearchBox: FC<SearchBoxProps> = ({ value, onChange, loading }) => {
 
   const onClickSearchButton = () => {
     if (hasValue) {
-      onChange && onChange(searchValue);
+      onSearch && onSearch(searchValue);
     }
   };
 
   return (
     <StyledSearchBoxContainer>
-      <StyledSearchBoxButton
+      <StyledBaseButton
         onClick={onClickPasteButton}
         data-testid='searchbox-paste-button'
       >
-        <StyledSearchPasteIcon />
-      </StyledSearchBoxButton>
+        <StyledClipboardIcon />
+      </StyledBaseButton>
 
       <StyledSearchBoxInput
         value={searchValue}
@@ -55,22 +55,21 @@ export const SearchBox: FC<SearchBoxProps> = ({ value, onChange, loading }) => {
         data-testid='searchbox-input'
       />
 
-      {hasValue && <StyledSearchBoxButton
+      {hasValue && <StyledBaseButton
         onClick={onClickClearButton}
         data-testid='searchbox-clear-button'
       >
-        <StyledSearchClearIcon />
-      </StyledSearchBoxButton>}
-
+        <StyledXMarkIcon />
+      </StyledBaseButton>}
 
       {/* For cleanness, this behavior should be implemented in two buttons */}
-      <StyledSearchBoxButton
+      <StyledBaseButton
         onClick={onClickSearchButton}
         disabled={loading}
         data-testid='searchbox-button'
       >
         {loading ? '...' : 'Go!'}
-      </StyledSearchBoxButton>
+      </StyledBaseButton>
     </StyledSearchBoxContainer>
   );
 };

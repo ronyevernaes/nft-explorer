@@ -17,9 +17,9 @@ describe('SearchBox component', () => {
 
   test('sends the search value to the handler when button is clicked', () => {
     const testValue = '0xE1F4D6a4f6BeA11968a13e1E4294b8FB81C2fC0d';
-    const onChange = jest.fn();
+    const onSearch = jest.fn();
 
-    render(<SearchBox value='' onChange={onChange} />);
+    render(<SearchBox value='' onSearch={onSearch} />);
 
     const input = screen.getByTestId('searchbox-input');
     act(() => fireEvent.change(input, { target: { value: testValue }}));
@@ -27,7 +27,7 @@ describe('SearchBox component', () => {
     const button = screen.getByTestId('searchbox-button');
     button.click();
 
-    expect(onChange).toHaveBeenCalledWith(testValue);
+    expect(onSearch).toHaveBeenCalledWith(testValue);
   });
 
   test('pastes a value existing in the clipboard', async () => {
@@ -49,9 +49,9 @@ describe('SearchBox component', () => {
 
   test('clears existing value in the search box', () => {
     const testValue = '0xE1F4D6a4f6BeA11968a13e1E4294b8FB81C2fC0d';
-    const onChange = jest.fn();
+    const onSearch = jest.fn();
 
-    render(<SearchBox value='' onChange={onChange} />);
+    render(<SearchBox value='' onSearch={onSearch} />);
 
     const input = screen.getByTestId('searchbox-input');
     act(() => fireEvent.change(input, { target: { value: testValue }}));

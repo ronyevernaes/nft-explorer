@@ -1,5 +1,5 @@
-import '@fontsource/roboto';
 import { createGlobalStyle } from 'styled-components';
+import '@fontsource/roboto';
 
 export const GlobalAppStyle = createGlobalStyle`
   * {

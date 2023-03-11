@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { ClipboardIcon, XMarkIcon } from '@heroicons/react/24/outline';
 
 export const StyledSearchBoxContainer = styled.div`
   display: flex;
@@ -28,12 +27,12 @@ export const StyledSearchBoxInput = styled.input`
   }
 `;
 
-export const StyledSearchBoxButton = styled.button`
+export const StyledBaseButton = styled.button`
   padding: 0;
   background: none;
   border: none;
   outline: none;
-  color: #7881a1;
+  color: ${({ theme }) => theme.colors?.secondary?.main};
   font-size: 2rem;
   line-height: 2.4rem;
   vertical-align: middle;
@@ -43,12 +42,3 @@ export const StyledSearchBoxButton = styled.button`
     color: #bfd2ff;
   }
 `;
-
-export const StyledSearchPasteIcon = styled(ClipboardIcon)`
-  width: 24px;
-`;
-
-export const StyledSearchClearIcon = styled(XMarkIcon)`
-  width: 24px;
-`;
-

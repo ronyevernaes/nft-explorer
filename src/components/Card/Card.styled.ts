@@ -8,6 +8,7 @@ export const StyledCard = styled.div`
   height: 400px;
   padding: 20px;
   opacity: 0.75;
+  cursor: pointer;
 
   h3 {
     text-overflow: ellipsis;

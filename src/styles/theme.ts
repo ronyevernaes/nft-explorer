@@ -7,7 +7,7 @@ const theme: DefaultTheme = {
       contrastText: '#f7f7ff',
     },
     secondary: {
-      main: '#50514f',
+      main: '#252736',
       contrastText: '#f7f7ff',
     },
     error: {
