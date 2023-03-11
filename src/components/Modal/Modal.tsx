@@ -21,11 +21,17 @@ export interface ModalProps {
 };
 
 export const Modal: FC<ModalProps> = ({ open, nft, ownerAddress, onClose }) => {
-  const { rawMetadata: metadata } = nft;
+  const { rawMetadata: metadata, contract, tokenId } = nft;
 
   const name = metadata?.name && metadata?.name.length > 0
     ? metadata?.name
-    : `${nft.contract.name} #${nft.tokenId}`;
+    : `${contract.name} #${tokenId}`;
+
+  const goToPurchasePage = () => {
+    window.open(
+      `https://opensea.io/assets/ethereum/${contract.address}/${tokenId}`
+    );
+  };
 
   console.log(nft);
 
@@ -50,7 +56,9 @@ export const Modal: FC<ModalProps> = ({ open, nft, ownerAddress, onClose }) => {
           </StyledModalBody>
 
           <StyledModalActions>
-            <StyledActionButton>Buy</StyledActionButton>
+            <StyledActionButton onClick={goToPurchasePage}>
+              View in OpenSea
+            </StyledActionButton>
           </StyledModalActions>
         </StyledModal>
       </StyledModalContainer>

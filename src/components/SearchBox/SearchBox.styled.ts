@@ -32,7 +32,7 @@ export const StyledBaseButton = styled.button`
   background: none;
   border: none;
   outline: none;
-  color: ${({ theme }) => theme.colors?.secondary?.main};
+  color: ${({ theme }) => theme.colors?.secondary?.contrastText};
   font-size: 2rem;
   line-height: 2.4rem;
   vertical-align: middle;
